@@ -13566,10 +13566,10 @@ y_i \cdot (w \cdot x_i + b) = 1
 <h3 id="In-bound-vs.-Out-bound-Support-Vectors">In-bound vs. Out-bound Support Vectors<a class="anchor-link" href="#In-bound-vs.-Out-bound-Support-Vectors">&#182;</a></h3><ul>
 <li><p><strong>In-bound Support Vectors</strong>: These are the vectors that exactly satisfy the equation $ y_i(w \cdot x_i + b) = 1 $. In this case, both points <strong>(-5, 0)</strong> and <strong>(5, 2)</strong> satisfy this equation, so they are in-bound support vectors.</p>
 </li>
-<li><p><strong>Out-bound Support Vectors</strong>: If any data point violates the margin but still lies within the margin (i.e., $( 0 &lt; y_i(w \cdot x_i + b) &lt; 1 $), it would be considered an out-bound support vector. However, in this example, we have not identified any such points.</p>
+<li><p><strong>Out-bound Support Vectors</strong>: If any data point violates the margin but still lies within the margin (i.e., $( 0 &lt; y_i(w \cdot x_i + b) &lt; 1 $), it would be considered an out-bound support vector. However, in this example, we have identified (-5, 1), (6, 3) points.</p>
 </li>
 </ul>
-<p>Thus, in this case, both identified support vectors are <strong>in-bound</strong> support vectors because they lie on the boundary of the margin and satisfy the equation exactly. There are no out-bound support vectors in this specific setup.</p>
+<p>Thus, in this case, both support vectors (-5, 0), (5, 2) are <strong>in-bound support vectors</strong> because they lie on the boundary of the margin and satisfy the equation exactly. <strong>Out-bound support vectors</strong> are (-5, 1), (6, 3) in this specific setup.</p>
 
 </div>
 </div>
@@ -13723,39 +13723,39 @@ How did you know which training examples had nonzero slack?</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>To determine which training examples have nonzero slack, we need to assess how each point in the dataset relates to the decision boundary and the margin in the SVM model. The slack variable $(\xi_i$) in SVMs measures the degree to which a data point (x_i) violates the margin.</p>
+<p>To determine which training examples have nonzero slack, we need to assess how each point in the dataset relates to the decision boundary and the margin in the SVM model. The slack variable $(\xi_i)$ in SVMs measures the degree to which a data point $(x_i$) violates the margin.</p>
 <h3 id="Key-Points:">Key Points:<a class="anchor-link" href="#Key-Points:">&#182;</a></h3><ul>
-<li><strong>Slack Condition</strong>: For a data point $(x_i)$ with label $(y_i)$, the margin condition is given by $\(y_i (\mathbf{w} \cdot \mathbf{x}_i + b)\)$. If this condition equals 1, the point lies on the margin. </li>
-<li>If the margin condition is less than 1, i.e., $\(y_i (\mathbf{w} \cdot \mathbf{x}_i + b) &lt; 1\)$, the point has nonzero slack, meaning it either lies inside the margin or is misclassified.</li>
+<li><strong>Slack Condition</strong>: For a data point $(x_i)$ with label $(y_i)$, the margin condition is given by $(y_i (\mathbf{w} \cdot \mathbf{x}_i + b))$. If this condition equals 1, the point lies on the margin. </li>
+<li>If the margin condition is less than 1, i.e., $(y_i (\mathbf{w} \cdot \mathbf{x}_i + b) &lt; 1)$, the point has nonzero slack, meaning it either lies inside the margin or is misclassified.</li>
 </ul>
 <h3 id="Steps-to-Identify-Nonzero-Slack-Examples:">Steps to Identify Nonzero Slack Examples:<a class="anchor-link" href="#Steps-to-Identify-Nonzero-Slack-Examples:">&#182;</a></h3><ol>
 <li><strong>Compute the Margin Condition</strong>: For each point, calculate $(y_i (\mathbf{w} \cdot \mathbf{x}_i + b))$.</li>
 <li><strong>Check the Slack Condition</strong>: Identify points where the margin condition is less than 1.</li>
 <li><strong>List these Points</strong>: The points that satisfy this condition have nonzero slack.</li>
 </ol>
-<h3 id="Example-Calculation:">Example Calculation:<a class="anchor-link" href="#Example-Calculation:">&#182;</a></h3><p>Given the decision boundary parameters $( \mathbf{w} = [-\frac{1}{4}, \frac{1}{4}] \) and \( b = -\frac{1}{4} \)$:</p>
-<p>For each point $(x_i\)$:</p>
+<h3 id="Example-Calculation:">Example Calculation:<a class="anchor-link" href="#Example-Calculation:">&#182;</a></h3><p>Given the decision boundary parameters $( \mathbf{w} = [-\frac{1}{4}, \frac{1}{4}] ) and ( b = -\frac{1}{4})$:</p>
+<p>For each point $(x_i)$:</p>
 <ul>
 <li><strong>Calculate the margin condition</strong>: $(y_i (\mathbf{w} \cdot \mathbf{x}_i + b)$)</li>
 <li><strong>Check if it’s less than 1</strong>: If yes, then the point has nonzero slack.</li>
 </ul>
 <h3 id="Applying-this-Logic-to-the-Given-Dataset:">Applying this Logic to the Given Dataset:<a class="anchor-link" href="#Applying-this-Logic-to-the-Given-Dataset:">&#182;</a></h3><p>For the points $((-5, 1)$) and $((6, 3)$), if we calculate:</p>
 <ol>
-<li><p><strong>Point (-5, 1)</strong>:</p>
-<ul>
+<li><strong>Point (-5, 1)</strong>:<ul>
 <li>Compute $( \mathbf{w} \cdot \mathbf{x}_i + b $) = $( [-\frac{1}{4}, \frac{1}{4}] \cdot [-5, 1] - \frac{1}{4} )$</li>
 <li>Calculate $( y_i (\mathbf{w} \cdot \mathbf{x}_i + b))$</li>
 <li>The result is less than 1, indicating nonzero slack.</li>
 </ul>
 </li>
-<li><p><strong>Point (6, 3)</strong>:</p>
-<ul>
+</ol>
+<ol>
+<li><strong>Point (6, 3)</strong>:<ul>
 <li>Perform a similar calculation and check the slack condition.</li>
 <li>This point also yields a margin condition less than 1, indicating nonzero slack.</li>
 </ul>
 </li>
 </ol>
-<p>These calculations confirm that the points $((-5, 1)) and ((6, 3)$) have nonzero slack, which explains why they were identified as such.</p>
+<p>These calculations confirm that the points $(-5, 1) and (6, 3)$ have nonzero slack, which explains why they were identified as such.</p>
 
 </div>
 </div>
@@ -13843,31 +13843,31 @@ Do these slack values agree with the plot of the data and the support vector bou
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Understanding-Slack-(\xi_i):">Understanding Slack (\xi_i):<a class="anchor-link" href="#Understanding-Slack-(\xi_i):">&#182;</a></h3><ul>
-<li><strong>Slack Variables</strong> ((\xi_i)) measure how much a data point violates the margin:<ul>
-<li>If (\xi_i = 0), the point is correctly classified and lies outside or on the margin (on the correct side).</li>
-<li>If (0 &lt; \xi_i \leq 1), the point is correctly classified but lies within the margin.</li>
-<li>If (\xi_i &gt; 1), the point is misclassified (i.e., it lies on the wrong side of the decision boundary).</li>
+<h3 id="Understanding-Slack-$(\xi_i)$:">Understanding Slack $(\xi_i)$:<a class="anchor-link" href="#Understanding-Slack-$(\xi_i)$:">&#182;</a></h3><ul>
+<li><strong>Slack Variables</strong> $(\xi_i)$ measure how much a data point violates the margin:<ul>
+<li>If $(\xi_i = 0$), the point is correctly classified and lies outside or on the margin (on the correct side).</li>
+<li>If $(0 &lt; \xi_i \leq 1$), the point is correctly classified but lies within the margin.</li>
+<li>If $(\xi_i &gt; 1$), the point is misclassified (i.e., it lies on the wrong side of the decision boundary).</li>
 </ul>
 </li>
 </ul>
 <h3 id="Plot-Interpretation:">Plot Interpretation:<a class="anchor-link" href="#Plot-Interpretation:">&#182;</a></h3><ul>
-<li><strong>Decision Boundary</strong>: The solid line in the plot represents the decision boundary ( w^T x + b = 0 ).</li>
-<li><strong>Margins</strong>: The dashed lines represent the margins at ( w^T x + b = \pm 1 ).</li>
-<li><strong>Support Vectors</strong>: Points that lie on these dashed lines or within the margins are support vectors. Misclassified points (with slack (\xi_i &gt; 1)) lie on the wrong side of the margin.</li>
+<li><strong>Decision Boundary</strong>: The solid line in the plot represents the decision boundary $( w^T x + b = 0 $).</li>
+<li><strong>Margins</strong>: The dashed lines represent the margins at $( w^T x + b = \pm 1 $).</li>
+<li><strong>Support Vectors</strong>: Points that lie on these dashed lines or within the margins are support vectors. Misclassified points (with slack $(\xi_i &gt; 1$)) lie on the wrong side of the margin.</li>
 </ul>
 <h3 id="Comparing-Slack-Values-with-the-Plot:">Comparing Slack Values with the Plot:<a class="anchor-link" href="#Comparing-Slack-Values-with-the-Plot:">&#182;</a></h3><p>Given the previously identified misclassified points:</p>
 <ol>
-<li><p><strong>Point ((-5, 1))</strong>:</p>
+<li><p><strong>Point (-5, 1)</strong>:</p>
 <ul>
 <li>The point has a label (y = -1) but lies close to or within the margin on the positive side.</li>
 <li>The slack (\xi) should be greater than 0 but typically close to 1 or slightly above, indicating a violation of the margin.</li>
 </ul>
 </li>
-<li><p><strong>Point ((6, 3))</strong>:</p>
+<li><p><strong>Point (6, 3)</strong>:</p>
 <ul>
 <li>The point has a label (y = 1) but also lies within the margin on the negative side.</li>
-<li>The slack (\xi) should also be greater than 0, likely exceeding 1, indicating it’s misclassified.</li>
+<li>The slack $(\xi$) should also be greater than 0, likely exceeding 1, indicating it’s misclassified.</li>
 </ul>
 </li>
 </ol>
@@ -14271,6 +14271,67 @@ Squared Hinge Loss:
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Comparison-of-Hinge-Loss-vs.-Squared-Hinge-Loss">Comparison of Hinge Loss vs. Squared Hinge Loss<a class="anchor-link" href="#Comparison-of-Hinge-Loss-vs.-Squared-Hinge-Loss">&#182;</a></h3><p>Both <strong>hinge loss</strong> and <strong>squared hinge loss</strong> are used in Support Vector Machines (SVM) to penalize misclassified points and points within the margin. However, they differ in how they penalize these points, which impacts the decision boundary, weight vector, and bias.</p>
+<p>Let's break down the results observed in your code and explain the differences:</p>
+<h4 id="1.-Hinge-Loss-(loss='hinge'):">1. <strong>Hinge Loss (<code>loss='hinge'</code>)</strong>:<a class="anchor-link" href="#1.-Hinge-Loss-(loss='hinge'):">&#182;</a></h4><ul>
+<li><strong>Weight vector (<code>w</code>)</strong>: <code>[-2.22814307, 0.85519417]</code></li>
+<li><p><strong>Bias (<code>b</code>)</strong>: <code>2.402572555382434</code></p>
+<p>The hinge loss is the traditional loss function used in linear SVMs, sometimes referred to as "max-margin" classification. It enforces a linear penalty on points that violate the margin. This linear penalty means that hinge loss only cares about whether a point is inside the margin or not, without penalizing points much further.</p>
+</li>
+<li><p><strong>Characteristics</strong>:</p>
+<ul>
+<li>Linear penalty for misclassified points.</li>
+<li>Encourages a hard margin (points must be correctly classified and far from the decision boundary).</li>
+<li>It is less tolerant to outliers.</li>
+</ul>
+</li>
+</ul>
+<h4 id="2.-Squared-Hinge-Loss-(loss='squared_hinge'):">2. <strong>Squared Hinge Loss (<code>loss='squared_hinge'</code>)</strong>:<a class="anchor-link" href="#2.-Squared-Hinge-Loss-(loss='squared_hinge'):">&#182;</a></h4><ul>
+<li><strong>Weight vector (<code>w</code>)</strong>: <code>[-1.7339485, 0.38182433]</code></li>
+<li><p><strong>Bias (<code>b</code>)</strong>: <code>2.2694223486105307</code></p>
+<p>The squared hinge loss is a modification of the standard hinge loss, where the loss is squared for points inside the margin or misclassified points. This creates a quadratic penalty, which grows faster as points get further from the correct side of the decision boundary.</p>
+</li>
+<li><p><strong>Characteristics</strong>:</p>
+<ul>
+<li>Quadratic penalty for misclassified points.</li>
+<li>Encourages smoother decision boundaries by being more tolerant of margin violations.</li>
+<li>Helps to reduce the influence of outliers since it penalizes large violations more aggressively.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Observations:">Observations:<a class="anchor-link" href="#Observations:">&#182;</a></h3><ol>
+<li><strong>Weight Vector</strong>:<ul>
+<li>For hinge loss, the weight vector <code>w = [-2.22814307, 0.85519417]</code> has larger magnitudes compared to the squared hinge loss <code>w = [-1.7339485, 0.38182433]</code>.</li>
+<li>This difference suggests that the decision boundary for hinge loss is more sensitive and creates a stricter separation between classes, while squared hinge loss produces a softer boundary due to smaller weight magnitudes.</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li><strong>Bias</strong>:<ul>
+<li>The bias values are fairly close, but hinge loss gives a slightly larger bias (<code>b = 2.402572555382434</code>) compared to squared hinge loss (<code>b = 2.2694223486105307</code>). This indicates that hinge loss may shift the decision boundary a little more to fit the data more rigidly.</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li><p><strong>Effect on Decision Boundary</strong>:</p>
+<ul>
+<li><strong>Hinge loss</strong>: Because it penalizes violations linearly, the SVM with hinge loss results in a more rigid decision boundary, potentially closer to the optimal margin. However, this rigidity can make the model more sensitive to noisy data points or outliers.</li>
+<li><strong>Squared hinge loss</strong>: The quadratic penalty on margin violations results in a smoother decision boundary. It is more robust to outliers, as extreme misclassifications are penalized more heavily, but this can also lead to a slightly softer margin.</li>
+</ul>
+</li>
+</ol>
+<h3 id="Conclusion:">Conclusion:<a class="anchor-link" href="#Conclusion:">&#182;</a></h3><ul>
+<li><strong>Hinge loss</strong> tends to produce a harder decision boundary with larger weights and is more prone to overfitting in noisy datasets due to its sensitivity to misclassifications.</li>
+<li><strong>Squared hinge loss</strong> provides a smoother decision boundary, leading to a more stable model that is less sensitive to outliers, with smaller weight magnitudes and a more generalized fit.</li>
+</ul>
+<p>In practice, <strong>squared hinge loss</strong> is often preferred in modern implementations due to its smoother handling of margin violations and better generalization, especially when working with real-world, noisy data.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Part D</strong>: In general, how does the choice of <code>C</code> affect the bias and variance of the model? Write your answer in this week's Peer Review assignment.</p>
 
 </div>
@@ -14618,8 +14679,7 @@ gamma=10 | cross-val mean-accuracy: 0.937
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Expected Observations:</p>
-<ul>
+<h3 id="Expected-Observations:">Expected Observations:<a class="anchor-link" href="#Expected-Observations:">&#182;</a></h3><ul>
 <li><p>C Tuning:</p>
 <ul>
 <li>Small C: May result in a smoother decision boundary, with potentially lower accuracy if the model is too simple.</li>
@@ -14787,6 +14847,23 @@ Best cross-val mean-accuracy: 0.943
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Best-Combination-of-Parameters:">Best Combination of Parameters:<a class="anchor-link" href="#Best-Combination-of-Parameters:">&#182;</a></h3><ul>
+<li><strong>Bright yellow/white regions</strong> represent the highest validation accuracy (around 0.9 or higher).</li>
+<li>Based on the image, the region where <strong>gamma</strong> is between 4 and 16, and <strong>C</strong> is between 8 and 32, appears to yield the best validation accuracy. This is shown by the bright yellow and white cells.</li>
+</ul>
+<h3 id="Conclusion:">Conclusion:<a class="anchor-link" href="#Conclusion:">&#182;</a></h3><p>The combination of parameters yielding the best performance likely falls in the range of:</p>
+<ul>
+<li><strong>C</strong> between 8 and 32.</li>
+<li><strong>Gamma</strong> between 4 and 16.</li>
+</ul>
+<p><strong>C =32, Gamma =2;  C=8, Gamma = 8;  C=16, Gamma 8.</strong></p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[27]:</div>
@@ -14918,6 +14995,28 @@ Best cross-val mean-accuracy: 0.943
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Key-Observations:">Key Observations:<a class="anchor-link" href="#Key-Observations:">&#182;</a></h3><ol>
+<li><p><strong>Non-linear Boundary</strong>: The decision boundary is clearly non-linear, which means the model is capturing complex patterns in the data. This type of boundary is characteristic of using a non-linear kernel (such as the RBF kernel in SVMs) to separate data that isn't linearly separable.</p>
+</li>
+<li><p><strong>Good Separation</strong>: The boundary appears to wrap well around the two classes (blue and red points), minimizing misclassifications while ensuring that the margin is maximized. This indicates that the model is successfully generalizing to the data by separating the classes while allowing for some margin softness.</p>
+</li>
+<li><p><strong>Smoothness</strong>: The decision boundary is smooth but complex enough to follow the data structure. This suggests that the hyperparameters chosen by the grid search (likely a higher value for <strong>gamma</strong> and <strong>C</strong>) are well-suited for capturing the intricacies of this dataset without overfitting.</p>
+</li>
+<li><p><strong>Region Overlap</strong>: In areas where the two classes are closer together, the decision boundary does not perfectly separate every point. This shows that the SVM is maintaining some margin flexibility, as expected in a non-linear classifier.</p>
+</li>
+</ol>
+<h3 id="Peer-Review-Questions-Answer:">Peer Review Questions Answer:<a class="anchor-link" href="#Peer-Review-Questions-Answer:">&#182;</a></h3><ul>
+<li><strong>What can you tell about the best decision boundary?</strong>
+ The decision boundary found by the SVM with the best hyperparameters is highly non-linear and follows the shape of the data distributions effectively. It balances complexity and generalization, ensuring that most data points are correctly classified while not overfitting the noise. The model likely uses a higher value for <strong>gamma</strong>, which allows it to form this highly adaptive decision surface.</li>
+</ul>
+<p>In summary, the decision boundary effectively reflects the data's inherent complexity and was chosen well by the grid search process.</p>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
