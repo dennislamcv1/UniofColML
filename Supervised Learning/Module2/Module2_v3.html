@@ -13716,7 +13716,7 @@ Inspect model summary from each model. What is the highest order model that make
 <p>In question 1d, we trained models with polynomial degrees up to 20, printing out each polynomial degree and (R^2) value. Based on the model summaries, we need to determine the sound degree, which is the highest polynomial degree where all predictors have a p-value less than 0.05.</p>
 <h3 id="Findings-from-Model-Summaries">Findings from Model Summaries<a class="anchor-link" href="#Findings-from-Model-Summaries">&#182;</a></h3><ul>
 <li><strong>Best Degree:</strong> The degree with the highest (R^2) value. In this case, the best degree was found to be 20 with an (R^2) value of 0.7245.</li>
-<li><strong>Sound Degree:</strong> The highest degree where all predictors have a p-value less than 0.05. Based on the provided logic, let's assume we found the sound degree to be 5 after inspecting the model summaries.</li>
+<li><strong>Sound Degree:</strong> The highest degree where all predictors have a p-value less than 0.05. Based on the result,  we found the sound degree to be 2.</li>
 </ul>
 <h3 id="Why-Higher-Order-Models-Might-Not-Make-Sense">Why Higher-Order Models Might Not Make Sense<a class="anchor-link" href="#Why-Higher-Order-Models-Might-Not-Make-Sense">&#182;</a></h3><ol>
 <li><p><strong>Overfitting:</strong> Higher-order polynomial models tend to fit the training data very closely, capturing noise and fluctuations that do not generalize well to new, unseen data. This can lead to overfitting, where the model performs poorly on validation or test datasets.</p>
@@ -15678,40 +15678,59 @@ strong multicollinearity or other numerical problems.
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Based on the provided plot showing the adjusted ( R^2 ) values versus the number of predictors, we can analyze the performance of the models on both the training and test sets to determine the optimal number of predictors for the enhanced BMI model.</p>
+<p>Based on the provided plot showing the adjusted $( R^2 $) values versus the number of predictors, we can analyze the performance of the models on both the training and test sets to determine the optimal number of predictors for the enhanced BMI model.</p>
 <h3 id="Analysis">Analysis<a class="anchor-link" href="#Analysis">&#182;</a></h3><ol>
 <li><strong>Training Set Performance</strong>:<ul>
-<li>The adjusted ( R^2 ) for the training set increases steadily as the number of predictors increases from 1 to 5.</li>
+<li>The adjusted $( R^2 $) for the training set increases steadily as the number of predictors increases from 1 to 5.</li>
 <li>This is expected, as adding more predictors generally improves the model's fit to the training data.</li>
 </ul>
 </li>
 </ol>
 <ol>
 <li><strong>Test Set Performance</strong>:<ul>
-<li>The adjusted ( R^2 ) for the test set also shows an increase, but with a different pattern.</li>
-<li>For ( k = 1 ), the adjusted ( R^2 ) is around 0.66.</li>
+<li>The adjusted $( R^2 $) for the test set also shows an increase, but with a different pattern.</li>
+<li>For ( k = 1 ), the adjusted $( R^2 $) is around 0.66.</li>
 <li>There is a noticeable improvement when moving to ( k = 2 ), reaching approximately 0.70.</li>
-<li>For ( k = 3 ), the adjusted ( R^2 ) slightly decreases to around 0.68, indicating potential overfitting.</li>
-<li>For ( k = 4 ) and ( k = 5 ), the adjusted ( R^2 ) increases again, reaching around 0.70 and 0.71, respectively.</li>
+<li>For ( k = 3 ), the adjusted $( R^2 $) slightly decreases to around 0.68, indicating potential overfitting.</li>
+<li>For ( k = 4 ) and ( k = 5 ), the adjusted $( R^2 $) increases again, reaching around 0.70 and 0.71, respectively.</li>
 </ul>
 </li>
 </ol>
 <h3 id="Suggested-Number-of-Parameters">Suggested Number of Parameters<a class="anchor-link" href="#Suggested-Number-of-Parameters">&#182;</a></h3><p>Considering the performance on both the training and test sets, the following points are important:</p>
 <ul>
-<li><strong>Initial Improvement</strong>: There is a significant improvement in adjusted ( R^2 ) when moving from ( k = 1 ) to ( k = 2 ) for the test set.</li>
-<li><strong>Stability and Complexity</strong>: Although the adjusted ( R^2 ) for the test set slightly decreases at ( k = 3 ), it increases again for ( k = 4 ) and ( k = 5 ). This suggests that the model benefits from additional predictors beyond 2, but we need to balance complexity and stability.</li>
-<li><strong>Optimal Trade-off</strong>: Considering the trade-off between model complexity and performance stability, and the consistent improvement beyond ( k = 3 ), a model with <strong>4 predictors</strong> appears to provide a good balance. This number of predictors shows improved test set performance without excessive complexity.</li>
+<li><p><strong>Initial Improvement</strong>: There is a significant improvement in adjusted $( R^2 $) when moving from ( k = 1 ) to ( k = 2 ) for the test set.</p>
+</li>
+<li><p><strong>Stability and Complexity</strong>: Although the adjusted $( R^2 $) for the test set slightly decreases at ( k = 3 ), it increases again for ( k = 4 ) and ( k = 5 ). This suggests that the model benefits from additional predictors beyond 2, but we need to balance complexity and stability.</p>
+</li>
+<li><p><strong>Optimal Trade-off</strong>: Considering the trade-off between model complexity and performance stability, and the consistent improvement beyond ( k = 3 ), a model with <strong>2 predictors</strong> appears to provide a good balance. This number of predictors shows improved test set performance without excessive complexity.</p>
+</li>
 </ul>
-<h3 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion">&#182;</a></h3><p>Based on the analysis, I would suggest using <strong>4 predictors</strong> for the enhanced BMI model. This choice ensures a good balance between improved predictive performance and manageable model complexity. The adjusted ( R^2 ) values indicate that this number of predictors offers significant improvement while maintaining generalization to the test set.</p>
+<h3 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion">&#182;</a></h3><p>Based on the analysis, I would suggest using <strong>2 predictors</strong> for the enhanced BMI model. This choice ensures a good balance between improved predictive performance and manageable model complexity. The adjusted $( R^2) $ values indicate that this number of predictors offers significant improvement while maintaining generalization to the test set.</p>
 <h3 id="Justification">Justification<a class="anchor-link" href="#Justification">&#182;</a></h3><ul>
-<li><strong>Performance</strong>: The adjusted ( R^2 ) increases consistently and significantly for ( k = 2 ) and shows stability or slight improvement for ( k = 4 ) and ( k = 5 ).</li>
-<li><strong>Complexity Management</strong>: Using 4 predictors keeps the model relatively simple while leveraging enough additional information to enhance predictive accuracy.</li>
-<li><strong>Generalization</strong>: The test set performance suggests that using 4 predictors strikes a balance between fitting the training data well and generalizing to new data, reducing the risk of overfitting.</li>
+<li><p><strong>Performance</strong>: The adjusted $( R^2 $) increases consistently and significantly for $( k = 2 $) and shows stability or slight improvement for ( k = 4 ) and ( k = 5 ).</p>
+</li>
+<li><p><strong>Complexity Management</strong>: Using 2 predictors keeps the model relatively simple while leveraging enough additional information to enhance predictive accuracy.</p>
+</li>
+<li><p><strong>Generalization</strong>: The test set performance suggests that using 2 predictors strikes a balance between fitting the training data well and generalizing to new data, reducing the risk of overfitting.</p>
+</li>
 </ul>
-<p>By selecting 4 predictors, we ensure that the enhanced BMI model is both effective and practical, offering improved prediction accuracy over the simple BMI model without unnecessary complexity.</p>
+<p>By selecting 2 predictors, we ensure that the enhanced BMI model is both effective and practical, offering improved prediction accuracy over the simple BMI model without unnecessary complexity.</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
 </div>
     </div>
   </div>
