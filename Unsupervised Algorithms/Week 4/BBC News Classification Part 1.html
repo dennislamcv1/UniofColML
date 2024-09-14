@@ -14603,7 +14603,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Project-Description-/-Business-Task">Project Description / Business Task<a class="anchor-link" href="#Project-Description-/-Business-Task">&#182;</a></h2>
+<h2 id="Project-Description">Project Description<a class="anchor-link" href="#Project-Description">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -14614,7 +14614,10 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>This Kaggle competition is about categorizing news articles. You will use matrix factorization to predict the category and submit your notebook for peer evaluation.</p>
+<p>Text documents are one of the richest sources of data for businesses.</p>
+<p>We’ll use a public dataset from the BBC comprised of 2225 articles, each labeled under one of 5 categories: business, entertainment, politics, sport or tech.</p>
+<p>The dataset is broken into 1490 records for training and 735 for testing. The goal will be to build a system that can accurately classify previously unseen news articles into the right category.</p>
+<p>The competition is evaluated using Accuracy as a metric.</p>
 
 </div>
 </div>
@@ -14637,13 +14640,13 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>File descriptions</p>
+<p><strong>File descriptions</strong></p>
 <ul>
 <li>BBC News Train.csv - the training set of 1490 records</li>
 <li>BBC News Test.csv - the test set of 736 records</li>
 <li>BBC News Sample Solution.csv - a sample submission file in the correct format</li>
 </ul>
-<p>Data fields</p>
+<p><strong>Data fields</strong></p>
 <ul>
 <li>ArticleId - Article id unique # given to the record</li>
 <li>Article - text of the header and article</li>
@@ -14784,9 +14787,9 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 
-<div id="3b26b143-ad99-4caf-9ebb-4530ef9e59e6" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="480e88a5-3ed7-4744-aef7-8e69b034bbc6" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('3b26b143-ad99-4caf-9ebb-4530ef9e59e6');
+var element = document.getElementById('480e88a5-3ed7-4744-aef7-8e69b034bbc6');
 IPython.notebook.set_autosave_interval(60000)
 </script>
 </div>
@@ -15479,7 +15482,7 @@ class="
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><strong>==========================================================================================================</strong></p>
+<p><strong>===========================================================================</strong></p>
 
 </div>
 </div>
@@ -15491,7 +15494,19 @@ class="
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Load-and-Preprocess-the-Data">Load and Preprocess the Data<a class="anchor-link" href="#Load-and-Preprocess-the-Data">&#182;</a></h3>
+<h2 id="Load-and-Preprocess-the-Data">Load and Preprocess the Data<a class="anchor-link" href="#Load-and-Preprocess-the-Data">&#182;</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>This function, preprocess_text(), is used to preprocess a given piece of text</p>
+
 </div>
 </div>
 </div>
@@ -15736,7 +15751,7 @@ class="
 <ul>
 <li><strong>Why Use TF-IDF?</strong>: TF-IDF is useful for our task because it captures the importance of words while reducing the weight of common words that are less informative, making it suitable for text classification.</li>
 </ul>
-<h3 id="Using-TF-IDF">Using TF-IDF<a class="anchor-link" href="#Using-TF-IDF">&#182;</a></h3><p>TF-IDF is chosen here because it is straightforward to implement and effective for text classification tasks. It highlights important words while reducing the weight of common but less informative words. This makes the feature vectors more informative and suitable for machine learning models.</p>
+<p>TF-IDF is chosen here because it is straightforward to implement and effective for text classification tasks. It highlights important words while reducing the weight of common but less informative words. This makes the feature vectors more informative and suitable for machine learning models.</p>
 
 </div>
 </div>
@@ -15748,19 +15763,8 @@ class="
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="Step-1:-Should-You-Include-Texts-(Word-Features)-from-the-Test-Dataset?">Step 1: Should You Include Texts (Word Features) from the Test Dataset?<a class="anchor-link" href="#Step-1:-Should-You-Include-Texts-(Word-Features)-from-the-Test-Dataset?">&#182;</a></h4><p>When training an unsupervised model for matrix factorization, you should not include texts from the test dataset. Including test data in the training process would result in data leakage, where the model has prior knowledge of the test set, leading to overfitting and inflated performance metrics. The purpose of the test set is to evaluate the model's performance on unseen data, ensuring it generalizes well to new, unknown examples.</p>
+<h2 id="Prepare-Data-for-scikit-surprise">Prepare Data for scikit-surprise<a class="anchor-link" href="#Prepare-Data-for-scikit-surprise">&#182;</a></h2><p>Scikit-Surprise is a Python library designed specifically for building and analyzing recommender systems. It simplifies the process of working with collaborative filtering algorithms to predict user-item interactions (e.g., predicting how much a user will like a specific item).</p>
 
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Prepare-Data-for-scikit-surprise">Prepare Data for scikit-surprise<a class="anchor-link" href="#Prepare-Data-for-scikit-surprise">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -71454,6 +71458,18 @@ class="
 </div>
 </div>
 
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h4 id="Step-3:-Measure-the-Performance">Step 3: Measure the Performance<a class="anchor-link" href="#Step-3:-Measure-the-Performance">&#182;</a></h4><p>The script above includes steps to measure performance using accuracy and confusion matrices. We also print the classification report for a detailed view of precision, recall, and F1-score.</p>
+
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -71565,9 +71581,8 @@ weighted avg       0.23      0.22      0.22       298
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="Step-3:-Measure-the-Performance">Step 3: Measure the Performance<a class="anchor-link" href="#Step-3:-Measure-the-Performance">&#182;</a></h4><p>The script above includes steps to measure performance using accuracy and confusion matrices. We also print the classification report for a detailed view of precision, recall, and F1-score.</p>
-<h4 id="Step-4:-Change-Hyperparameters-and-Record-Results">Step 4: Change Hyperparameters and Record Results<a class="anchor-link" href="#Step-4:-Change-Hyperparameters-and-Record-Results">&#182;</a></h4><p>To improve the model, you can experiment with different hyperparameters, such as the number of latent factors (n_factors), the number of clusters in KMeans, or the maximum number of iterations in logistic regression. Record the results and compare them to determine the best configuration.</p>
-<h4 id="Step-5:-Improve-Model-Performance">Step 5: Improve Model Performance<a class="anchor-link" href="#Step-5:-Improve-Model-Performance">&#182;</a></h4><p>Further improvements could involve using different feature extraction methods like GloVe or Word2Vec, fitting models to different subsets of data, or ensembling model predictions.</p>
+<h2 id="Step-4:-Change-Hyperparameters-and-Record-Results">Step 4: Change Hyperparameters and Record Results<a class="anchor-link" href="#Step-4:-Change-Hyperparameters-and-Record-Results">&#182;</a></h2><p>To improve the model, you can experiment with different hyperparameters, such as the number of latent factors (n_factors), the number of clusters in KMeans, or the maximum number of iterations in logistic regression. Record the results and compare them to determine the best configuration.</p>
+<h2 id="Step-5:-Improve-Model-Performance">Step 5: Improve Model Performance<a class="anchor-link" href="#Step-5:-Improve-Model-Performance">&#182;</a></h2><p>Further improvements could involve using different feature extraction methods like GloVe or Word2Vec, fitting models to different subsets of data, or ensembling model predictions.</p>
 <p><strong>==================================================================</strong></p>
 
 </div>
@@ -71580,7 +71595,7 @@ weighted avg       0.23      0.22      0.22       298
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Compare-with-supervised-learning">Compare with supervised learning<a class="anchor-link" href="#Compare-with-supervised-learning">&#182;</a></h2>
+<h2 id="Step-6:-Comparison-with-supervised-learning">Step 6: Comparison with supervised learning<a class="anchor-link" href="#Step-6:-Comparison-with-supervised-learning">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -71915,13 +71930,69 @@ weighted avg       0.97      0.97      0.97       298
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Step-2:-Discuss-Comparison-with-the-Unsupervised-Approach">Step 2: Discuss Comparison with the Unsupervised Approach<a class="anchor-link" href="#Step-2:-Discuss-Comparison-with-the-Unsupervised-Approach">&#182;</a></h3><h4 id="Supervised-vs.-Unsupervised-Learning">Supervised vs. Unsupervised Learning<a class="anchor-link" href="#Supervised-vs.-Unsupervised-Learning">&#182;</a></h4><ol>
+<h2 id="Step-7:-Discuss-Comparison-with-the-Unsupervised-Approach">Step 7: Discuss Comparison with the Unsupervised Approach<a class="anchor-link" href="#Step-7:-Discuss-Comparison-with-the-Unsupervised-Approach">&#182;</a></h2><h4 id="Supervised-vs.-Unsupervised-Learning">Supervised vs. Unsupervised Learning<a class="anchor-link" href="#Supervised-vs.-Unsupervised-Learning">&#182;</a></h4><table>
+<thead><tr>
+<th>Method</th>
+<th>Accuracy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Matrix Factorization result</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>Train accuracy</td>
+<td>0.3674</td>
+</tr>
+<tr>
+<td>Test accuracy</td>
+<td>0.2248</td>
+</tr>
+<tr>
+<td><strong>Logistic Regression</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>Train accuracy</td>
+<td>0.9966</td>
+</tr>
+<tr>
+<td>Test accuracy</td>
+<td>0.9765</td>
+</tr>
+<tr>
+<td><strong>Random Forest</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>Train accuracy</td>
+<td>1.0000</td>
+</tr>
+<tr>
+<td>Test accuracy</td>
+<td>0.9698</td>
+</tr>
+</tbody>
+</table>
+<ol>
 <li><strong>Accuracy and Performance:</strong><ul>
 <li>Supervised learning methods such as Logistic Regression and Random Forest generally achieve higher accuracy on both train and test datasets compared to the unsupervised matrix factorization approach.</li>
 <li>Logistic Regression and Random Forest are trained directly to minimize classification error, while unsupervised approaches aim to uncover underlying structures without direct supervision.</li>
 </ul>
 </li>
 </ol>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <ol>
 <li><strong>Data Efficiency:</strong><ul>
 <li>Supervised models tend to be more data-efficient, requiring fewer labeled examples to achieve high performance. By contrast, unsupervised models may need a larger dataset to identify meaningful patterns and clusters.</li>

@@ -14630,7 +14630,8 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"train.csv"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Load the movie ratings data (as in the HW3-recommender-system)</span>
+<span class="n">train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"train.csv"</span><span class="p">)</span>
 <span class="n">test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"test.csv"</span><span class="p">)</span>
 </pre></div>
 
@@ -15074,6 +15075,8 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <li>Use more advanced initialization techniques like <code>nndsvd</code> which can provide a better starting point for factorization.</li>
 </ul>
 </li>
+</ol>
+<ol>
 <li><p><strong>Regularization</strong>:</p>
 <ul>
 <li>Adding regularization can help prevent overfitting. Regularization terms in the objective function penalize large factor values, leading to more generalizable models.</li>
@@ -15086,6 +15089,8 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <li>Conduct a grid search or use cross-validation to find the optimal number of latent factors and regularization parameters.</li>
 </ul>
 </li>
+</ol>
+<ol>
 <li><p><strong>Hybrid Methods</strong>:</p>
 <ul>
 <li>Combine NMF with other models. For instance, use NMF to initialize a collaborative filtering model or blend NMF predictions with those from baseline or similarity-based methods.</li>
